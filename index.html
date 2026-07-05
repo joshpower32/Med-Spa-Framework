@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Medspa &amp; Skin Clinic | Hamilton, ON</title>
+    <meta name="description" content="Physician-directed medspa on Locke Street South. Injectables, laser, medical-grade facials, and body contouring — every plan starts with a free consultation.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "AURA Medspa & Skin Clinic",
+      "priceRange": "$$",
+      "telephone": "+1-905-555-2872",
+      "email": "hello@auramedspa.ca",
+      "address": { "@type": "PostalAddress", "streetAddress": "89 Locke St S", "addressLocality": "Hamilton", "addressRegion": "ON", "postalCode": "L8P 4A6", "addressCountry": "CA" }
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== Header / Nav ===== -->
+    <header class="site-header" id="top">
+        <div class="wrap nav">
+            <a href="#top" class="brand">
+                <svg class="brand-mark" aria-hidden="true" viewBox="0 0 100 100" width="18" height="18"><path d="M50 4 L59 41 L96 50 L59 59 L50 96 L41 59 L4 50 L41 41 Z" fill="currentColor"/></svg>
+                <span class="brand-name">AURA</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="#finder">Find My Treatment</a>
+                <a href="#treatments">Treatments</a>
+                <a href="#team">Team</a>
+                <a href="#memberships">Memberships</a>
+                <a href="#visit">Visit</a>
+                <a href="#consult" class="nav-cta">Free Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Hero (three.js silk-flow behind) ===== -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero-fade" aria-hidden="true"></div>
+        <div class="wrap hero-inner">
+            <p class="eyebrow" data-fx>Locke Street South · Hamilton · Physician-Directed</p>
+            <h1 class="display" data-fx data-fx-delay="80">Great Skin,<br><span class="gold">By Design.</span></h1>
+            <p class="lede" data-fx data-fx-delay="160">A nurse-led medical aesthetics clinic — injectables, laser, and advanced skin treatments, planned around your face instead of a menu.</p>
+            <div class="hero-actions" data-fx data-fx-delay="240">
+                <a class="btn btn-primary" href="#consult" data-magnetic>Book a Free Consultation</a>
+                <a class="btn btn-ghost" href="#finder" data-magnetic>Find Your Treatment</a>
+            </div>
+        </div>
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Injectables</span><span>·</span><span>Laser</span><span>·</span><span>HydraGlow</span><span>·</span><span>Peels</span><span>·</span><span>Microneedling</span><span>·</span><span>Body Contouring</span><span>·</span><span>Nurse-Led</span><span>·</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Stats band ===== -->
+    <section class="stats-band">
+        <div class="wrap stats-row">
+            <div class="stat" data-fx><strong><span data-count-to="12000">0</span>+</strong><span>Treatments performed</span></div>
+            <div class="stat" data-fx data-fx-delay="80"><strong><span data-count-to="9">0</span></strong><span>Years in Hamilton</span></div>
+            <div class="stat" data-fx data-fx-delay="160"><strong><span data-count-to="400">0</span>+</strong><span>Five-star reviews</span></div>
+            <div class="stat" data-fx data-fx-delay="240"><strong><span data-count-to="98">0</span>%</strong><span>Would recommend us</span></div>
+        </div>
+    </section>
+
+    <!-- ===== Treatment finder (signature feature) ===== -->
+    <section id="finder" class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Start Here</p>
+                <h2 class="display-sm">What's Bothering You?</h2>
+                <p class="section-sub">Tell us the concern — we'll tell you what actually treats it, and what it costs.</p>
+            </div>
+            <div class="finder-chips" id="finderChips" aria-label="Skin concerns" data-fx></div>
+            <p class="finder-note" id="finderNote" data-fx></p>
+            <div class="finder-results" id="finderResults" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- ===== Treatments ===== -->
+    <section id="treatments" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">The Menu</p>
+                <h2 class="display-sm">Treatments, Priced Honestly</h2>
+                <p class="section-sub">Starting prices, real durations, real downtime. Your exact plan is confirmed at a free consult.</p>
+            </div>
+            <div class="treatments-grid" id="treatmentsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section id="team" class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">The Team</p>
+                <h2 class="display-sm">Medical First, Spa Second</h2>
+            </div>
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Spa strip ===== -->
+    <section class="spa-strip" aria-label="Inside the clinic">
+        <div class="spa-img" id="spaImg" data-parallax></div>
+        <div class="wrap spa-copy">
+            <p class="eyebrow" data-fx>The Space</p>
+            <h2 class="display-sm" data-fx data-fx-delay="80">Clinical Where It Counts</h2>
+            <p data-fx data-fx-delay="160">Calm everywhere else. Medical-grade equipment, hospital-grade sterilization, and a space that doesn't feel like a clinic.</p>
+        </div>
+    </section>
+
+    <!-- ===== Memberships ===== -->
+    <section id="memberships" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Memberships</p>
+                <h2 class="display-sm">Skin Is a Practice</h2>
+                <p class="section-sub">One-off treatments work. A plan works better — and costs less.</p>
+            </div>
+            <div class="rates-grid" id="membershipsGrid"></div>
+            <p class="rates-fineprint" data-fx>Every consultation is free · Memberships are month-to-month after three months · Treatment prices are starting points, confirmed at your consult</p>
+        </div>
+    </section>
+
+    <!-- ===== Reviews ===== -->
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Clients</p>
+                <h2 class="display-sm">Subtle, Not Secret</h2>
+            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Consult form ===== -->
+    <section id="consult" class="section section-tint">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Free Consultation</p>
+                <h2 class="display-sm">Start With a Conversation</h2>
+                <p class="section-sub">Thirty minutes, no charge, no obligation. Leave with a plan and real prices.</p>
+            </div>
+            <form id="consultForm" class="consult-form" data-fx>
+                <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="concern">Main Concern</label>
+                        <select id="concern" name="concern" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="treatment">Treatment Interest</label>
+                        <select id="treatment" name="treatment"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="timing">Best Time for You</label>
+                    <select id="timing" name="timing">
+                        <option value="Weekday daytime">Weekday daytime</option>
+                        <option value="Weekday evenings">Weekday evenings</option>
+                        <option value="Saturdays">Saturdays</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Anything We Should Know? <span class="optional">(optional)</span></label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Allergies, past treatments, what you've tried, what you're hoping for…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-magnetic>Request My Free Consult</button>
+                <p id="consultNote" class="form-note">No obligation, ever. Consults are with a clinician — not a salesperson.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== Visit / Hours / Map ===== -->
+    <section id="visit" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Visit</p>
+                <h2 class="display-sm">On Locke, By the Trees</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card" data-fx>
+                    <h3>Hours</h3>
+                    <p>
+                        Mon: Closed<br>
+                        Tue–Fri: 10 AM – 7 PM<br>
+                        Sat: 9 AM – 5 PM<br>
+                        Sun: Closed
+                    </p>
+                </div>
+                <div class="contact-card" data-fx data-fx-delay="80">
+                    <h3>Location</h3>
+                    <p>
+                        89 Locke St S<br>
+                        Hamilton, ON<br>
+                        L8P 4A6
+                    </p>
+                </div>
+                <div class="contact-card" data-fx data-fx-delay="160">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Phone:</strong> (905) 555-2872<br>
+                        <strong>Email:</strong> hello@auramedspa.ca<br>
+                        <strong>Instagram:</strong> @aura.medspa
+                    </p>
+                </div>
+            </div>
+            <div class="map-embed" data-fx>
+                <div class="map-fallback" aria-hidden="true">
+                    <p><strong>AURA Medspa &amp; Skin Clinic</strong><br>89 Locke St S, Hamilton, ON</p>
+                    <a class="btn btn-ghost" href="https://www.google.com/maps?q=89+Locke+St+S,+Hamilton,+ON" target="_blank" rel="noopener">Open in Google Maps</a>
+                </div>
+                <iframe src="https://www.google.com/maps?q=89+Locke+St+S,+Hamilton,+ON&output=embed" title="Map to AURA Medspa, 89 Locke St S, Hamilton" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-content">
+                <p>&copy; 2026 AURA Medspa &amp; Skin Clinic. All rights reserved.</p>
+                <p class="footer-credits">
+                    Built with <strong>PowerStudio</strong> Frameworks •
+                    Photos via <a href="https://pexels.com" target="_blank" rel="noopener">Pexels</a> •
+                    Forms via <a href="https://web3forms.com" target="_blank" rel="noopener">Web3Forms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Toast ===== -->
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+    <script src="fx.js"></script>
+    <script type="module" src="three-scene.js"></script>
+</body>
+</html>
