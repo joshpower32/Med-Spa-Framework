@@ -16,6 +16,7 @@
     --brand-soft: rgba(217, 185, 140, 0.14);
     --glow: 0 0 60px rgba(217, 185, 140, 0.18);
     --glass: rgba(255, 255, 255, 0.04);
+    --highlight: rgb(195, 170, 30); /* treat-card hover accent */
 
     /* Type — Prata didone display (Google Fonts), system body */
     --font-head: "Prata", Georgia, "Times New Roman", serif;
@@ -152,7 +153,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; color: var(--ink); }
 /* ---------- Treatments grid ---------- */
 .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .treat-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transform-style: preserve-3d; will-change: transform; transition: border-color .3s ease; }
-.treat-card:hover { border-color: var(--brand); }
+.treat-card:hover { border: 1px solid var(--highlight); }
 .treat-card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; opacity: .8; transition: opacity .3s ease, transform .5s ease; }
 .treat-card:hover > img { opacity: 1; transform: scale(1.04); }
 .treat-card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--gx, 50%) var(--gy, 50%), rgba(217, 185, 140, 0.13), transparent 45%); opacity: 0; transition: opacity .3s ease; pointer-events: none; }
